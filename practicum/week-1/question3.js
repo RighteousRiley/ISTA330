@@ -17,4 +17,5 @@ var numberOfOrderedPairs = function(input) {
             }
         }
     }
+    return pairCount;
 };
