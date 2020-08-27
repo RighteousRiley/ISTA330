@@ -7,8 +7,8 @@ For example given the input array [5, 6, 1], the running sum is
 
 var runningSum = function(input) {
     let sum = 0;
-   input.array.forEach(element => {
-       sum += element;
-   });
+    for(let i=0; i < input.length; i++) {
+        sum += input[i];
+    }
    return sum;
 };
