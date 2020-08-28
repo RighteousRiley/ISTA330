@@ -16,3 +16,4 @@ var median = function(input) {
         return input[(input.length - 1) / 2];
     }
 };
+console.log(median);
