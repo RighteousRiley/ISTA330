@@ -11,7 +11,7 @@ var median = function(input) {
     } else if(input.length % 2 === 0) {
         var firstElementIndex = (input.length - 1) / 2;
         var secondElementIndex = firstElementIndex + 1;
-        return input[firstElementIndex] + input[secondElementIndex] / 2.0
+        return (input[firstElementIndex] + input[secondElementIndex]) / 2.0
     } else {
         return input[(input.length - 1) / 2];
     }
