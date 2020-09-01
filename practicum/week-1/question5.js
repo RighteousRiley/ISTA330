@@ -12,7 +12,17 @@ output: 3
 */
 
 var minimalReduction = function(n) {
-
+    var operationCount = 0;
+    while(n > 0) {
+        if (n % 4 === 0) {
+            n = n / 4;
+            continue;
+        } else if (n % 3 === 0) {
+            n = n / 3;
+        } else {
+            n -= 1;
+        }
+        operationCount += 1;
+    }
+    return operationCount;
 };
-
-console.log('hi');
