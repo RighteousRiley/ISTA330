@@ -9,7 +9,7 @@ var median = function(input) {
     if(input.length === 0) {
         return 0;
     } else if(input.length % 2 === 0) {
-        return (input[input.length / 2] + input[(input.length + 1) / 2]) / 2.0;
+        return (input[input.length / 2] + input[(input.length + 1) / 2]) * 1.0 / 2;
     } else {
         return input[(input.length - 1) / 2];
     }
