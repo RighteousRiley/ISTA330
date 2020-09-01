@@ -16,13 +16,16 @@ var minimalReduction = function(n) {
     while(n > 0) {
         if (n % 4 === 0) {
             n = n / 4;
+            operationCount += 1;
             continue;
         } else if (n % 3 === 0) {
             n = n / 3;
+            operationCount += 1;
+            continue;
         } else {
             n -= 1;
+            operationCount += 1;
         }
-        operationCount += 1;
     }
     return operationCount;
 };
