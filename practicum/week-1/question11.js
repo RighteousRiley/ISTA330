@@ -18,6 +18,8 @@ var decode = function(input) {
            output.push(element);
            multiplier -= 1;
        }
-       i += 1;
+       i += 2;
    }
+   return output;
 };
+console.log(decode([0,8,1,3,2,7]));
