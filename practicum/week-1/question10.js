@@ -7,11 +7,12 @@ output: 7 - 2 = 5
 */
 
 var maxMinusMin = function(n) {
-    n = toString(n);
+    n = n.toString();
     var max = 0;
-    var min = 0;
+    var min = 10;
     for(let i=0;i<n.length;i++) {
         var currNum = parseInt(n[i]);
+        console.log(currNum);
         if (currNum > max) {
             max = currNum;
         } else if(currNum < min) {
