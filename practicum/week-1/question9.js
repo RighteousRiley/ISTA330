@@ -12,7 +12,8 @@ var suffleString = function(input, shuffleIndices) {
     var inputArr = input.split("");
     var outputArr = [];
     for(let i=0;i<shuffleIndices.length;i++) {
-        outputArr[i] = inputArr[shuffleIndices[i]];
+        var currShuffleIndex = shuffleIndices[i];
+        ouput[currShuffleIndex] = inputArr[i];
     }
     return outputArr.join("");
 };
