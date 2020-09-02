@@ -8,9 +8,17 @@ output: 7 - 2 = 5
 
 var maxMinusMin = function(n) {
     n = toString(n);
-    var numArray = [];
+    var max = 0;
+    var min = 0;
     for(let i=0;i<n.length;i++) {
-        numArray.push(parseInt(n.charAt(i)));
+        var currNum = parseInt(n[i]);
+        if (currNum > max) {
+            max = currNum;
+        } else if(currNum < min) {
+            min = currNum;
+        } else {
+            continue;
+        }
     }
-    return Math.max(numArray) - Math.min(numArray);
+    return max - min;
 };
