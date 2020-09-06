@@ -14,5 +14,52 @@ output: 4 because the following partition has the highest number of balanced sub
 */
 
 var maxBalanceNumber = function(input) {
-
+  var partitionsList = findPartitions(input);
+  var maxBalNum = 0;
+  for(let i=0;i < partitionsList.length;i++) {
+    var currPart = partitionsList[i];
+    var currPartBalNum = findBalancedStrings(currPart).length;
+    if(currPartBalNum > maxBalNum) {
+      maxBalNum = currPartBalNum;
+    }
+  }
+  return maxBalNum-1;
 };
+
+function findPartitions(input) {
+  var partitionList = [];
+  var len = input.length;
+  for(let i=0; i<len;i++) {
+    var partition = [];
+    for(let j=len; j>=0; j--) {
+      partition.push(input.substring(i,j))
+    }
+    partitionList.push(partition);
+  }
+  return partitionList;
+}
+
+function findBalancedStrings(subArray) {
+  var balancedStrings = [];
+  for(let i=0;i<subArray.length;i++) {
+    var currStr = subArray[i];
+      if (isBalanced(currStr)) {
+        balancedStrings.push(currStr);
+      }
+  }
+  return balancedStrings;
+}
+
+function isBalanced(str) {
+  var aCount = 0;
+  var bCount = 0;
+  for(let i=0; i<str.length;i++) {
+    var currChar = str.charAt(i);
+    if (currChar === 'a') {
+      aCount += 1;
+    } else {
+      bCount += 1;
+    }
+  }
+  return (aCount === bCount);
+}
