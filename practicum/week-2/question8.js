@@ -13,10 +13,14 @@ output: 3
 */
 
 var d_integer = function(input) {
-    var map = makeMap;
-    console.log(map);
-    var dInts = [];
-    
+    var map = makeMap(input);
+    var dIntsOrdered = bubbleSort(findDInts(map));
+    if(dIntsOrdered.length >= 1) {
+        if(dIntsOrdered[0] > dIntsOrdered[1]) {
+            return dIntsOrdered[0];
+        } 
+    }
+    return -1;
 };
 
 function makeMap(input) {
@@ -25,10 +29,33 @@ function makeMap(input) {
         if (!(map.has(input[i]))) {
             map.set(input[i],1);
         } else {
-            map.put(input[i], map.get(input[i]) + 1);
+            map.set(input[i], map.get(input[i]) + 1);
         }
     }
     return map;
 }
 
+function bubbleSort(input) {
+    var length = input.length;
+    for (var i = length-1; i >= 0; i--){
+           for(var j = 1; j <= i; j++){
+                  if(input[j-1] < input[j]){
+                  var item = input[j-1];
+                  input[j-1] = input[j];
+                  input[j] = item;
+           }
+    }
+ }
+ return input;
+}
+
+function findDInts(map) {
+    var dInts = [];
+    for(let key of map.keys()) {
+        if(key === map.get(key)) {
+            dInts.push(key);
+        }
+    }
+    return dInts;
+}
 console.log(d_integer([3,5,3,3,5,1]));
