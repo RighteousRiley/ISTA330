@@ -33,16 +33,3 @@ function bubbleSort(input) {
     }
     return input;
 }
-
-function findPairs(input) {
-       var possiblePairs = [];
-       var maxMin = 0;
-       for(let i=0;i<input.length;i++) {
-              for(let j=0;j<input.length;j++) {
-                     if(input[i] !== input[j]) {
-                            possiblePairs.push({x:input[i], y:input[j]});
-                     }
-              }
-       }
-       return possiblePairs;
-}
