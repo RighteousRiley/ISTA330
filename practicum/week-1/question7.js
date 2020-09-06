@@ -13,7 +13,6 @@ output: 4
 // all possible pairs
 var maxSumOfMins = function(input) {
        var sortedInput = bubbleSort(input);
-       console.log(sortedInput);
        var minSum = 0;
        for(let i=0; i<sortedInput.length;i+=2) {
               minSum += sortedInput[i];
@@ -47,4 +46,3 @@ function findPairs(input) {
        }
        return possiblePairs;
 }
-console.log(maxSumOfMins([1,3,4,2,6,8,5,7]));
