@@ -13,5 +13,6 @@ Example:
 */
 
 var hasDuplicates = function(input) {
-
+        return !(input.length === new Set(input).size);
 };
+console.log(hasDuplicates([3,5,90,21]));
