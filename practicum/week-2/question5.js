@@ -17,7 +17,31 @@ output: true
 */
 
 var isMonotonic = function(input) {
-
+    var isIncreasing = isIncr(input);
+    var isDecreasing = isDecr(input);
+    return isDecreasing || isIncreasing;
 };
 
-console.log('hi');
+function isIncr(input) {
+    for(let i=0;i<input.length;i++) {
+        for(let j=i;j<input.length;j++) {
+            if(!(input[i] <= input[j])) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+function isDecr(input) {
+    for(let i=0;i<input.length;i++) {
+        for(let j=i;j<input.length;j++) {
+            if(!(input[i] >= input[j])) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+console.log(isMonotonic([3,5,90,21]));
