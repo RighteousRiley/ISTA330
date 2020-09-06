@@ -13,5 +13,22 @@ output: 3
 */
 
 var d_integer = function(input) {
-
+    var map = makeMap;
+    console.log(map);
+    var dInts = [];
+    
 };
+
+function makeMap(input) {
+    var map = new Map();
+    for(let i=0;i<input.length;i++) {
+        if (!(map.has(input[i]))) {
+            map.set(input[i],1);
+        } else {
+            map.put(input[i], map.get(input[i]) + 1);
+        }
+    }
+    return map;
+}
+
+console.log(d_integer([3,5,3,3,5,1]));
