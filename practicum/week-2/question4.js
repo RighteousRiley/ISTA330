@@ -13,6 +13,35 @@ Example:
 */
 
 var hasDuplicates = function(input) {
-        return !(input.length === new Set(input).size);
+        var sorted = bubbleSort(input);
+        return checkDup(sorted);
 };
-console.log(hasDuplicates([3,5,90,21]));
+
+function bubbleSort(input) {
+    var length = input.length;
+    for (var i = length-1; i >= 0; i--){
+           for(var j = 1; j <= i; j++){
+                  if(input[j-1] > input[j]){
+                  var item = input[j-1];
+                  input[j-1] = input[j];
+                  input[j] = item;
+           }
+    }
+ }
+ return input;
+}
+
+function checkDup(input) {
+    if (input.length === 0) {
+        return false;
+    } else if( input.length === 1) {
+        return false;
+    } else {
+        if(input[0] === input[1]) {
+            return true;
+        } else {
+            return hasDuplicates(input.slice(2));
+        }
+    }
+}
+console.log(hasDuplicates([19,1,1,23,23,4,3,23,1,2]));
