@@ -14,5 +14,19 @@ output: 1
 */
 
 var d_count = function(input1, input2, d) {
-
+    var dCount = 0;
+    for(let firstNum of input1) {
+        var hasD = true;
+        for(let secondNum of input2) {
+            var diff = Math.abs(firstNum - secondNum);
+            if(diff <= d) {
+                hasD = false;
+            }
+        }
+        if(hasD) {
+            dCount += 1;
+        }
+    }
+    return dCount;
 };
+console.log(d_count([2,1,26,3], [-5,-2,10,-3,7], 6))
