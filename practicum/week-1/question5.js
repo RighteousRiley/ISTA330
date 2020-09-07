@@ -29,3 +29,7 @@ var minimalReduction = function(n) {
     }
     return operationCount;
 };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 35eef42f4277b7c54284c2333b8d1e6a833bff7e
