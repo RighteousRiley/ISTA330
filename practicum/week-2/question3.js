@@ -13,8 +13,12 @@ output: [
 */
 
 var PascalTriangle = function(n) {
-  if (n === 0) return [];
-  if (n === 1) return [[1]];
+  if (n === 0) {
+    return [];
+  }
+  if (n === 1) {
+    return [[1]]
+  };
   let pascalArr = [];
   for (let i = 1; i <= n; i++) {
       let rowArr = [];
