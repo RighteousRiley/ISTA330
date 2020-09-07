@@ -16,9 +16,8 @@ var d_integer = function(input) {
     var map = makeMap(input);
     var dIntsOrdered = bubbleSort(findDInts(map));
     if(dIntsOrdered.length >= 1) {
-        if(dIntsOrdered[0] > dIntsOrdered[1]) {
-            return dIntsOrdered[0];
-        } 
+        return dIntsOrdered[0];
+ 
     }
     return -1;
 };
