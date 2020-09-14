@@ -1,199 +1,234 @@
-// largestNumberIsAtLeastTwice
+// howManyTeams
 const q1 = [{
-    input: [[3,2,21,50]],
-    output: true
-},
-{
-    input: [[3,2,1,5]],
-    output: false
-}];
-// largestSubarray
-const q2 = [{
-    input: [[-12,3,-1,5,-2,1,-7]],
-    output: 7
-},
-{
-    input: [[-17,3,1,5,-9,-1,10]],
-    output: 10
-}];
-// PascalTriangle
-const q3 = [{
-    input: [4],
-    output: [
-        [1],
-       [1,1],
-      [1,2,1],
-     [1,3,3,1] 
-   ]
-},
-{
-    input: [5],
-    output: [
-        [1],
-       [1,1],
-      [1,2,1],
-     [1,3,3,1],
-    [1,4,6,4,1]
-   ]
-}];
-//hasDuplicates
-const q4 = [{
-    input: [[19,1,1,23,23,4,3,23,1,2]],
-    output: true
-},
-{
-    input: [[3,5,90,21]],
-    output: false
-}];
-//isMonotonic
-const q5 = [{
-    input: [[12, 6, 2, 2, 2, 0]],
-    output: true
-},
-{
-    input: [[29, 6, 31, 2, 23, 40]],
-    output: false
-}];
-// m_element
-const q6 = [{
-    input: [[1, 2, 2, 3, 2, 7, 2]],
-    output: 2
-},
-{
-    input: [[1, 2, 3, 4, 5, 6, 7, 8]],
-    output: -1
-}];
-//transpose
-const q7 = [{
-    input: [[[1,2,3],[4,5,6]]],
-    output: [[1,4], [2,5], [3,6]]
-},
-{
-    input: [[[1,4], [2,5], [3,6]]],
-    output: [[1,2,3],[4,5,6]]
-}];
-//d_integer
-const q8 = [{
-    input: [[3,5,3,3,5,1]],
-    output: 3
-},
-{
-    input: [[3,5,3,9,6,45,86,9]],
-    output: -1
-}];
-//largestGroupsCount
-const q9 = [{
-    input: [11],
-    output: 2
-},
-{
-    input: [24],
-    output: 5
-}];
-//minPairs
-const q10 = [{
-    input: [[1,-5,-10,24,19,-4,-14,23]],
-    output: [[-5, -4], [23, 24]]
-},
-{
-    input: [[17,-5,-1,24,29,54,1]],
-    output: [[-1, 1]]
-}];
-//d-count
-const q11 = [{
-    input: [[2,1,26,3], [-5,-2,10,-3,7], 6],
+    input: [[2,5,3,4,1]],
     output: 1
 },
 {
-    input: [[2,100,37,3], [4,8,10,0,-14], 10],
-    output: 2
+    input: [[2,1,3]],
+    output: 0
 }];
-
-//fibonacci
-const q12 = [{
-    input: [9],
-    output: 34
+// findDuplicates
+const q2 = [{
+    input: [[19,3,2,10,8,2,3,5]],
+    output: [2,3]
 },
 {
-    input: [30],
-    output: 832040
+    input: [[-17,3,1,5,-9,1,10]],
+    output: [1]
+}];
+// kStepAway
+const q3 = [{
+    input: [[1,0,0,0,1,0,0,1], 2],
+    output: true
+},
+{
+    input: [[1,0,0,1,0,1], 2],
+    output: false
+}];
+// powerSet
+const q4 = [{
+    input: [[1,2,3]],
+    output: [
+        [],   
+        [1],
+        [2],
+        [3],  
+        [1,3],
+        [2,3],
+        [1,2],
+        [1,2,3]
+      ],
+    setEquality: true  
+},
+{
+    input: [[1,2]],
+    output: [
+        [],
+        [1],
+        [2],
+        [1,2]
+    ],
+    setEquality: true  
+}];
+// productOfOthers
+const q5 = [{
+    input: [[1,2,3,4]],
+    output: [24,12,8,6]
+},
+{
+    input: [[7, 10, 5]],
+    output: [50, 35, 70]
+}];
+// longestNested
+const q6 = [{
+    input: [[5,4,0,3,1,6,2]],
+    output: 4
+},
+{
+    input: [[4,3,2,0,1]],
+    output: 4
+}];
+// minPath
+const q7 = [{
+    input: [[
+        [1,3,1],
+        [1,5,1],
+        [4,2,1]
+      ]],
+    output: 7
+},
+{
+    input: [[
+        [1,2,3],
+        [1,4,5],
+        [4,3,2]
+      ]],
+    output: 12
+}];
+// sortColors
+const q8 = [{
+    input: [[2,0,2,1,1,0]],
+    output: [0,0,1,1,2,2]
+},
+{
+    input: [[0,1,2,1,1,2]],
+    output: [0,1,1,1,2,2]
+}];
+// minMoves
+const q9 = [{
+    input: [[1,2,2]],
+    output: 1
+},
+{
+    input: [[3,2,1,2,1,7]],
+    output: 6
+}];
+// isPalindrome
+const q10 = [{
+    input: ['Was it a car or a cat I saw?'],
+    output: true
+},
+{
+    input: ['A man, a plane, a canal – Panama'],
+    output: false
+}];
+// romanToInteger
+const q11 = [{
+    input: ["IV"],
+    output: 4
+},
+{
+    input: ["MCMXCIV"],
+    output: 1994
+}];
+
+// isCrossing
+const q12 = [{
+    input: ["NESSESW"],
+    output: false
+},
+{
+    input: ["NESWW"],
+    output: true
 }];
 
 let result = [{
-    functionName: 'largestNumberIsAtLeastTwice',
-    functionCode: largestNumberIsAtLeastTwice,
+    functionName: 'howManyTeams',
+    functionCode: howManyTeams,
     trials: [],
     cases: q1
 },
 {
-    functionName: 'largestSubarray',
-    functionCode: largestSubarray,
+    functionName: 'findDuplicates',
+    functionCode: findDuplicates,
     trials: [],
     cases: q2
 },
 {
-    functionName: 'PascalTriangle',
-    functionCode: PascalTriangle,
+    functionName: 'kStepAway',
+    functionCode: kStepAway,
     trials: [],
     cases: q3
 },
 {
-    functionName: 'hasDuplicates',
-    functionCode: hasDuplicates,
+    functionName: 'powerSet',
+    functionCode: powerSet,
     trials: [],
     cases: q4
 },
 {
-    functionName: 'isMonotonic',
-    functionCode: isMonotonic,
+    functionName: 'productOfOthers',
+    functionCode: productOfOthers,
     trials: [],
     cases: q5
 },
 {
-    functionName: 'm_element',
-    functionCode: m_element,
+    functionName: 'longestNested',
+    functionCode: longestNested,
     trials: [],
     cases: q6
 },
 {
-    functionName: 'transpose',
-    functionCode: transpose,
+    functionName: 'minPath',
+    functionCode: minPath,
     trials: [],
     cases: q7
 },
 {
-    functionName: 'd_integer',
-    functionCode: d_integer,
+    functionName: 'sortColors',
+    functionCode: sortColors,
     trials: [],
     cases: q8
 },
 {
-    functionName: 'largestGroupsCount',
-    functionCode: largestGroupsCount,
+    functionName: 'minMoves',
+    functionCode: minMoves,
     trials: [],
     cases: q9
 },
 {
-    functionName: 'minPairs',
-    functionCode: minPairs,
+    functionName: 'isPalindrome',
+    functionCode: isPalindrome,
     trials: [],
     cases: q10
 },
 {
-    functionName: 'd_count',
-    functionCode: d_count,
+    functionName: 'romanToInteger',
+    functionCode: romanToInteger,
     trials: [],
     cases: q11
 },
 {
-    functionName: 'fibonacci',
-    functionCode: F,
+    functionName: 'isCrossing',
+    functionCode: isCrossing,
     trials: [],
     cases: q12
 }
 ];
 
-function isEqual(a1, a2){
+function setsAreEqual(a1, a2) {
+   if(a1.length !== a2.length) {
+       return false;
+   }
+   for(let x of a1) {
+       let xIsThere = false;
+       for(let y of a2) {
+          if(isEqual(x, y)) {
+              xIsThere = true;
+              break;
+          }
+       }
+       if(!xIsThere) {
+           return false;
+       }
+   }
+   return true;
+}
+
+function isEqual(a1, a2, setEquality){
+    if(setEquality) {
+        return setsAreEqual(a1, a2);
+    }
     const t = typeof(a1);
     if((t === 'boolean') || (t === 'number') || (t === 'string')){
         return a1 === a2;
@@ -218,7 +253,7 @@ for(let f of result){
         output: undefined};
         trial.output = f.functionCode(...x.input);
         
-        if(isEqual(x.output, trial.output)) {
+        if(isEqual(x.output, trial.output, x.setEquality)) {
             trial.status = 'success'
         }
         f.trials.push(trial);
