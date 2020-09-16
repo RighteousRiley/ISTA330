@@ -28,7 +28,7 @@ function findPossiblePairs(input,minDiff) {
             var secondNum = input[j];
             var diff = Math.abs(secondNum - firstNum);
             if(diff === minDiff) {
-                var sortedPair = bubbleSort([firstNum, secondNum]);
+                var sortedPair = mySort([firstNum, secondNum]);
                 if(!hasPairs(pairs, sortedPair)) {
                     pairs.push(sortedPair);
                 }
@@ -59,7 +59,7 @@ function findMinDiff(input) {
     }
     return minDiff;
 }
-function bubbleSort(input) {
+function mySort(input) {
     var length = input.length;
     for (var i = length-1; i >= 0; i--){
            for(var j = 1; j <= i; j++){

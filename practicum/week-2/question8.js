@@ -14,7 +14,7 @@ output: 3
 
 var d_integer = function(input) {
     var map = makeMap(input);
-    var dIntsOrdered = bubbleSort(findDInts(map));
+    var dIntsOrdered = bubbleSortDescending(findDInts(map));
     if(dIntsOrdered.length >= 1) {
         return dIntsOrdered[0];
     }
@@ -33,7 +33,7 @@ function makeMap(input) {
     return map;
 }
 
-function bubbleSort(input) {
+function bubbleSortDescending(input) {
     var length = input.length;
     for (var i = length-1; i >= 0; i--){
            for(var j = 1; j <= i; j++){

@@ -13,11 +13,11 @@ Example:
 */
 
 var hasDuplicates = function(input) {
-        var sorted = bubbleSort(input);
+        var sorted = bubbleSortAscending(input);
         return checkDup(sorted);
 };
 
-function bubbleSort(input) {
+function bubbleSortAscending(input) {
     var length = input.length;
     for (var i = length-1; i >= 0; i--){
            for(var j = 1; j <= i; j++){
