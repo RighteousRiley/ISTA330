@@ -5,13 +5,11 @@ otherwise return false.
 
 Example:
 input: input = [1,0,0,0,1,0,0,1], k = 2
-"1 0 0 0 1 0 0 1"
 output: true
 */
 
 var kStepAway = function(input, k) {
     splitList = input.join("").split("1");
-    console.log(splitList);
     for(let substr of splitList) {
         if(substr.length < k && substr != '') {
             return false;
