@@ -39,9 +39,11 @@ var powerSet = function(input) {
       }
     }
   }
-  if(powerSet[powerSet.length-1].length >= 2) {
-    powerSet.pop();
+  if(allSet.length === 2) {
+    
+  } else {
+    powerSet.push(allSet);
   }
   return powerSet
 };
-console.log(powerSet([1,2]));
+console.log(powerSet([1,2,3]));
