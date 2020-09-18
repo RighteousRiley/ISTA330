@@ -21,12 +21,17 @@ Example:
 var powerSet = function(input) {
   var powerSet = [[]];
   var allSet = [];
-  for(var i=0;i<input.length;i++) {
+  for(var i=0;i<input.length;i++) {9
+    var currSet = [];
     var currI = input[i];
-    powerSet.push([currI]);
+    currSet.push(currI);
+    if(!(powerSet.includes(currSet))) {
+      powerSet.push(currSet);
+    }
     allSet.push(currI);
+    
     for(var j=i+1; j<input.length;j++) {
-      var currSet = [];
+      currSet = [];
       currSet.push(currI);
       currSet.push(input[j]);
       if(!(powerSet.includes(currSet))) {
@@ -34,8 +39,9 @@ var powerSet = function(input) {
       }
     }
   }
-  console.log(powerSet);
-  powerSet.push(allSet);
-  return powerSet;
+  if(powerSet[powerSet.length-1].length >= 2) {
+    powerSet.pop();
+  }
+  return powerSet
 };
-console.log(powerSet([1,2,3]));
+console.log(powerSet([1,2]));
