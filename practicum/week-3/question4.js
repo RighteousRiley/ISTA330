@@ -19,6 +19,23 @@ Example:
 */
 
 var powerSet = function(input) {
-  
+  var powerSet = [[]];
+  var allSet = [];
+  for(var i=0;i<input.length;i++) {
+    var currI = input[i];
+    powerSet.push([currI]);
+    allSet.push(currI);
+    for(var j=i+1; j<input.length;j++) {
+      var currSet = [];
+      currSet.push(currI);
+      currSet.push(input[j]);
+      if(!(powerSet.includes(currSet))) {
+        powerSet.push(currSet);
+      }
+    }
+  }
+  console.log(powerSet);
+  powerSet.push(allSet);
+  return powerSet;
 };
-console.log(powerSet([1,2]));
+console.log(powerSet([1,2,3]));
