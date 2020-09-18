@@ -23,7 +23,23 @@ output:  4
      A[A[A[A[0]]]] = A[2] = 0
      but A[A[A[A[A[0]]]]] = A[0] = 5 which is a duplicate.
 */
-
+function recurveSolver(input, soFar, index) {
+     if(input[soFar.length-1] in soFar) {
+          return soFar.length + 1;
+     } else {
+          soFar.push(input[soFar.length-1]);
+          return recurveSolver(input, soFar, index); 
+     }
+}
 var longestNested = function(A) {
-
+     var longest = 0;
+     for(let i=0; i<A.length;i++) {
+          var solverReturn = recurveSolver(A, [], i);
+          if(solverReturn > longest) {
+               longest = solverReturn;
+          }
+     }
+     return longest;
 };
+console.log(longestNested([4,3,2,0,1]));
+
