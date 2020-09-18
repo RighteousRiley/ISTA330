@@ -12,10 +12,12 @@ output: true
 
 var isPalindrome = function(s) {
     s = s.toLowerCase().replace(/ /gi, "");
+    s = s.replace("?", "");
     var reversed = "";
     for(let i = s.length;i>=0;i--) {
         reversed += s.charAt(i);
     }
+    console.log(s, reversed)
     return reversed == s;
 };
-console.log(isPalindrome("A man, a plane, a canal – Panama"));
+console.log(isPalindrome("Was it a car or a cat I saw?"));
