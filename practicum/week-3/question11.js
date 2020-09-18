@@ -33,7 +33,28 @@ Example:
 input: "IV"
 output: 4
 */
-
 var romanToInteger = function(s) {
-
+    var value = 0;
+    var map = { "I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D":500, "M":1000 }
+    let i = 0;
+    while(i < s.length) {
+        var firstSym = map[s.charAt(i)];
+        if(i + 1 < s.length) {
+            var secSym = map[s.charAt(i+1)];
+            if(firstSym > secSym) {
+                value += firstSym;
+                i += 1;
+            } else {
+                value += secSym;
+                value -= firstSym;
+                i += 2;
+            }
+        }
+        else {
+            value += firstSym;
+            i += 1;
+        }
+    }
+    return value;
 };
+console.log(romanToInteger("MCMXCIV"));
