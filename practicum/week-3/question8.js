@@ -11,7 +11,31 @@ Example:
 input:  [2,0,2,1,1,0]
 output: [0,0,1,1,2,2]
 */
-
+function recurveCheck(input) {
+    if(input.length < 2) {
+        return false;
+    } else if(input.length == 2) {
+        return input[0] <= input[1];
+    } else {
+        if (!(input[0] <= input[1])) {
+            return false;
+        } else {
+            return recurveCheck(input.slice(1));
+        }
+    }
+}
 var sortColors = function(input) {
-
+    while(recurveCheck(input) != true) {
+        for(let i=0;i<input.length-1;i++) {
+            let first = input[i];
+            let second = input[i+1];
+            if(first > second) {
+                temp = first;
+                input[i] = input[i+1];
+                input[i+1] = temp;
+            }
+        }
+    }
+    return input;
 };
+console.log(sortColors([0,1,2,1,1,2]));
