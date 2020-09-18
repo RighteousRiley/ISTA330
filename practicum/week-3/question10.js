@@ -11,5 +11,11 @@ output: true
 */
 
 var isPalindrome = function(s) {
-
+    s = s.toLowerCase().replace(/ /gi, "");
+    var reversed = "";
+    for(let i = s.length;i>=0;i--) {
+        reversed += s.charAt(i);
+    }
+    return reversed == s;
 };
+console.log(isPalindrome("A man, a plane, a canal – Panama"));
