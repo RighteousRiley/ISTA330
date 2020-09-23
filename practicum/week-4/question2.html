@@ -141,11 +141,10 @@
         }
         console.log("post indexOf")
 
-        function buildTable(flowers) {
+        function buildTable(flowers, table) {
             NUM_ROWS = 2;
             NUM_COLS = 4;
             flowerIndex = 0;
-            var table = document.createElement("table");
             for(let i=0; i<NUM_ROWS;i++) {
                 var tr = document.createElement("tr");
                 table.appendChild(tr);
@@ -166,7 +165,6 @@
                 }
                 table.appendChild(tr);
            }
-           return table;
         }
         console.log("post buildTable")
 
@@ -196,13 +194,13 @@
         });
         console.log("post addListener")
         }
-        table = buildTable(flowers)
+        var table = document.createElement("table");
+        buildTable(flowers, table)
         console.log("post buildTable")
         insertTable(table);
         console.log("post inserTable")
-        table = div.getElementsByTagName("table")[0];
         console.log(table)
-        div.addEventListener("click", addListener(table));
+        //div.addEventListener("click", addListener(table));
     </script>
 </body>
 
