@@ -172,27 +172,6 @@
             div.appendChild(table);
        }
        console.log("post insertTable")
-
-
-        function addListener(table) {
-            table.addEventListener("click", function(event) {
-            var clickedCell = event.target;
-            let tagName = clickedCell.tagName.toLowerCase();
-            if(tagName === "img" || tagName === "td") {
-                var parent = clickedCell.parentNode;
-            } if(parent) {
-                var pTag = parent.getElementsByTagName("p")[0];
-                var flowerName = pTag.innerText;
-            }
-            flowers.sort(myCompare);
-            let clickedIndex = indexOf(flowerName, flowers);
-            let arrayFront = flowers.splice(clickedIndex);
-            flowers = arrayFront.concat(flowers);
-            table.innerHTML = "";
-            table = buildTable(flowers);
-            insertTable(table);
-        });
-        console.log("post addListener")
         }
         var table = document.createElement("table");
         buildTable(flowers, table)
@@ -200,7 +179,23 @@
         insertTable(table);
         console.log("post inserTable")
         console.log(table)
-        //div.addEventListener("click", addListener(table));
+        table.addEventListener('click', function(event) {
+          var clickedCell = event.target;
+          let tagName = clickedCell.tagName.toLowerCase();
+          if(tagName === "img" || tagName === "td") {
+              var parent = clickedCell.parentNode;
+          } if(parent) {
+              var pTag = parent.getElementsByTagName("p")[0];
+              var flowerName = pTag.innerText;
+          }
+          flowers.sort(myCompare);
+          let clickedIndex = indexOf(flowerName, flowers);
+          let arrayFront = flowers.splice(clickedIndex);
+          flowers = arrayFront.concat(flowers);
+          table.innerHTML = "";
+          buildTable(flowers, this);
+          insertTable(this);
+        })
     </script>
 </body>
 
