@@ -61,7 +61,7 @@
         /*
            1. Display the flowers as per question 1.
            2. Add the following functionality to the page:
-              When users click on an image, the images should be 
+              When users click on an image, the images should be
               reorganized using the following rule:
               The flowers that has been clicked goes to the first position in
               the first row. The next position in the first row will
@@ -72,8 +72,8 @@
               then the flowers should be rearranged as:
 
          lily       rose           sunflower   tulip
-        waterlily   cherryblossom  daffodil    daisy 
-        
+        waterlily   cherryblossom  daffodil    daisy
+
         */
         class Flower {
             constructor(name, pictureName) {
@@ -178,7 +178,6 @@
 
         function addListener(table) {
             table.addEventListener("click", function(event) {
-            div.innerHTML = "";
             var clickedCell = event.target;
             let tagName = clickedCell.tagName.toLowerCase();
             if(tagName === "img" || tagName === "td") {
@@ -191,6 +190,7 @@
             let clickedIndex = indexOf(flowerName, flowers);
             let arrayFront = flowers.splice(clickedIndex);
             flowers = arrayFront.concat(flowers);
+            table.innerHTML = "";
             table = buildTable(flowers);
             insertTable(table);
         });
