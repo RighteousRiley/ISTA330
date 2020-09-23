@@ -102,7 +102,8 @@
         ];
 
         const div = document.getElementById("flowersDiv");
-        console.log("START")
+        const NUM_ROWS = 2;
+        const NUM_COLS = 4;
         function myCompare(a, b) {
             if(a.name === b.name) {
                 return 0;
@@ -112,7 +113,6 @@
                 return -1;
             }
         }
-        console.log("post myCmp")
 
         function isSorted(flowers) {
             for(let i = 0; i<flower.length-1;i++) {
@@ -124,7 +124,6 @@
             }
             return true;
         }
-        console.log("post is sorted")
 
         function indexOf(flowerName, flowers) {
             let flowerIndex = 0;
@@ -139,11 +138,8 @@
             }
             return flowerIndex;
         }
-        console.log("post indexOf")
 
         function buildTable(flowers, table) {
-            NUM_ROWS = 2;
-            NUM_COLS = 4;
             flowerIndex = 0;
             for(let i=0; i<NUM_ROWS;i++) {
                 var tr = document.createElement("tr");
@@ -166,18 +162,15 @@
                 table.appendChild(tr);
            }
         }
-        console.log("post buildTable")
 
         function insertTable(table) {
             div.appendChild(table);
        }
-       console.log("post insertTable");
+
+       //main
         var table = document.createElement("table");
         buildTable(flowers, table)
-        console.log("post buildTable")
         insertTable(table);
-        console.log("post inserTable")
-        console.log(table)
         table.addEventListener('click', function(event) {
           var clickedCell = event.target;
           let tagName = clickedCell.tagName.toLowerCase();
@@ -197,5 +190,4 @@
         })
     </script>
 </body>
-
 </html>
