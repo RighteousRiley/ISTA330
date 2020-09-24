@@ -104,6 +104,8 @@
         const div = document.getElementById("flowersDiv");
         const NUM_ROWS = 2;
         const NUM_COLS = 4;
+
+        // Our sorting implementation by flower name (a-z)
         function myCompare(a, b) {
             if(a.name === b.name) {
                 return 0;
@@ -113,47 +115,24 @@
                 return -1;
             }
         }
-
-        function isSorted(flowers) {
-            for(let i = 0; i<flower.length-1;i++) {
-                let first = flowers[i];
-                let sec = flowers[i+1];
-                if(!(first.name > sec.name)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        function indexOf(flowerName, flowers) {
-            let flowerIndex = 0;
-            for(let i=0; i<flowers.length;i++) {
-                let currFlower = flowers[i];
-                if(currFlower.name === flowerName) {
-                    flowerIndex = i;
-                    break;
-                } else {
-                    flowerIndex = -1;
-                }
-            }
-            return flowerIndex;
-        }
-
+        // build the table containing our flowers for flowerDiv
         function buildTable(flowers, table) {
             flowerIndex = 0;
             for(let i=0; i<NUM_ROWS;i++) {
                 var tr = document.createElement("tr");
                 table.appendChild(tr);
                 for(let j=0;j<NUM_COLS;j++) {
+                  // Creates flower with a picture and caption
                     let flower = document.createElement("div");
-                    flower.setAttribute("class", "flower")
-                    let flowerImg = document.createElement("img")
+                    let flowerImg = document.createElement("img");
                     flowerImg.src = "images/" + flowers[flowerIndex].picture;
                     flower.appendChild(flowerImg);
                     let caption = flowers[flowerIndex].name;
                     let p = document.createElement("p");
                     p.innerHTML = caption;
                     flower.appendChild(p);
+
+                    // Make new table cell and place flower inside of it
                     let td = document.createElement("td");
                     td.appendChild(flower);
                     tr.appendChild(td);
@@ -167,23 +146,22 @@
             div.appendChild(table);
        }
 
-       //main
+       // main
         var table = document.createElement("table");
         buildTable(flowers, table)
         insertTable(table);
         table.addEventListener('click', function(event) {
+          // Access name of flower clicked in table
           var clickedCell = event.target;
           let tagName = clickedCell.tagName.toLowerCase();
-          if(tagName === "img" || tagName === "td") {
-              var parent = clickedCell.parentNode;
-          } if(parent) {
-              var pTag = parent.getElementsByTagName("p")[0];
-              var flowerName = pTag.innerText;
-          }
+          var parent = clickedCell.parentNode;
+          var flowerName = parent.getElementsByTagName("p")[0].innerText;
+          // Rearrange flowers so clicked flower is index 0
           flowers.sort(myCompare);
-          let clickedIndex = indexOf(flowerName, flowers);
+          let clickedIndex = flowers.findIndex(x => x.name === flowerName);
           let arrayFront = flowers.splice(clickedIndex);
           flowers = arrayFront.concat(flowers);
+          // refill table with flowers in new order
           table.innerHTML = "";
           buildTable(flowers, this);
           insertTable(this);
