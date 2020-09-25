@@ -20,3 +20,4 @@ var howManyCommon = function(A, B) {
     }
     return commonLetters;
 };
+console.log(howManyCommon('gtY', 'iTygrtg'))

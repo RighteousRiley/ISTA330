@@ -14,3 +14,5 @@ var runningSum = function(input) {
     }
    return arr;
 };
+
+console.log(runningSum([5, 6, 1]))
