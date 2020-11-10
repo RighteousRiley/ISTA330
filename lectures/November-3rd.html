@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='weather'>
+
+    </div>
+    <br />
+    <div id='stock'>
+
+    </div>
+    <script>
+        let apiKey = '8e1efd6f4c0a30dffb92d128a502c521';
+        let city = 'Tucson';
+        let state = 'Arizona';
+        let apibase = 'https://api.openweathermap.org/data/2.5';
+        let weatherAPI = apibase + `/weather?q=${city},${state}&appid=${apiKey}&units=imperial`;
+        fetch(weatherAPI).then(x => x.json()).then(data => display(data));
+        let display = (weatherData) => {
+            let div = document.getElementById('weather');
+            div.innerHTML = `<div>${state}, ${city}</div> 
+                             <div>${weatherData.weather[0].description}</div>
+                             <div>${Math.round(weatherData.main.temp)}<sup>&deg;F</sup></div>`;
+        }
+        let company = 'IBM';
+        let stockapiKey = '7I87R5HSKAK2MXL2';
+        let stock = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${company}&apikey=${stockapiKey}`;
+        fetch(stock).then(x => x.json()).then(data => dispalyStock(data));
+        let dispalyStock = (stockData) => {
+             let div = document.getElementById('stock');             
+             for(let key in stockData["Meta Data"]) {
+                 div.innerHTML += `<div>${key}: ${stockData["Meta Data"][key]}</div>`;
+             }
+             
+        };
+    </script>
+</body>
+</html>
